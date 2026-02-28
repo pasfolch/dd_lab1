@@ -9,11 +9,11 @@ module spi_slave
     input   wire                    mosi    , // Master Out Slave In data line
     input   wire [NB_DATA - 1 : 0]  rd_data , // Data read from memory
 
-    output  wire                    miso    , // Master In Slave Out data line
-    output  wire [NB_ADDR - 1 : 0]  addr_out, // Address output for memory access
-    output  wire [NB_DATA - 1 : 0]  wr_data , // Data to be written to memory.
-    output  wire                    wr_req  , // Write request signal. Must rise on the last SCLK pulse of the data word on SPI write frame to trigger the memory write operation
-    output  wire                    rd_req    // Read request signal. Must rise on the last SCLK pulse of the address word on the SPI read frame to trigger the memory read operation
+    output  reg                     miso    , // Master In Slave Out data line
+    output  reg  [NB_ADDR - 1 : 0]  addr_out, // Address output for memory access
+    output  reg  [NB_DATA - 1 : 0]  wr_data , // Data to be written to memory.
+    output  reg                     wr_req  , // Write request signal. Must rise on the last SCLK pulse of the data word on SPI write frame to trigger the memory write operation
+    output  reg                     rd_req    // Read request signal. Must rise on the last SCLK pulse of the address word on the SPI read frame to trigger the memory read operation
 );
 
 

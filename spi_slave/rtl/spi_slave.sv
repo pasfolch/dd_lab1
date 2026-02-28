@@ -17,7 +17,31 @@ module spi_slave
 );
 
 
+    // byte counter
 
+    localparam NB_COUNT = $clog2(NB_DATA);
+    reg [NB_COUNT - 1 : 0] count;
+    always @() begin
+        
+    end
+
+    reg [NB_DATA - 1 : 0] sr;
+
+
+    // fsm
+
+    typedef enum logic [1:0] {
+        STATE_IDLE,
+        STATE_HEAD,
+        STATE_ADDR,
+        STATE_EXEC
+    } state_t;
+
+    state_t current_state, next_state;
+
+    always @() begin
+        
+    end
 
 
 endmodule

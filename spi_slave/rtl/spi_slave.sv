@@ -25,12 +25,12 @@ module spi_slave
     wire [NB_COUNT - 1 : 0] count_next;
     wire                    count_limit;
 
-    assign count_next  = count + 1'b1;   
-    assign count_limit = (count_next >= NB_DATA);
+    assign count_next  =  count + 1'b1;   
+    assign count_limit = (count >= NB_DATA);
 
     always @(posedge sclk or negedge resetb) begin
         if ((!resetb) | count_limit) begin
-            count <= {NB_DATA{1'b0}};
+            count <= {NB_COUNT{1'b0}};
         end else begin
             count <= count_next;
         end
